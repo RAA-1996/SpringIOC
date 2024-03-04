@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean class="com.cogent.SpringIOC.Laptop" id="laptop">
+		<property name="id" value="1"></property>
+		<property name="brand" value="Dell"></property>
+		<property name="colors">
+			<list>
+				<value>"Black"</value>
+				<value>"Silver"</value>
+				<value>"Gold"</value>
+				<value>"Blue"</value>
+			</list>
+		</property>
+		<property name="country">
+			<map>
+				<entry>
+					<key>
+						<value>Country</value>
+					</key>
+					<value>China</value>
+				</entry>
+				<entry>
+					<key>
+						<value>Economy</value>
+					</key>
+					<value>5</value>
+				</entry>
+			</map>
+		</property>
+		<property name="employees">
+			<list>
+				<map>
+					<entry>
+						<key>
+							<value>name</value>
+						</key>
+						<value>Aman</value>
+					</entry>
+					<entry>
+						<key>
+							<value>salary</value>
+						</key>
+						<value>20000</value>
+					</entry>
+				</map>
+				<map>
+					<entry>
+						<key>
+							<value>name</value>
+						</key>
+						<value>Rohit</value>
+					</entry>
+					<entry>
+						<key>
+							<value>salary</value>
+						</key>
+						<value>25000</value>
+					</entry>
+				</map>
+			</list>
+		</property>
+		<property name="bodymanu">
+			<list>
+				<bean class="com.cogent.SpringIOC.BodyManu">
+					<property name="id" value="1"></property>
+					<property name="company" value="ABC"></property>
+				</bean>
+				<bean class="com.cogent.SpringIOC.BodyManu">
+					<property name="id" value="2"></property>
+					<property name="company" value="XYZ"></property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean class="com.cogent.SpringIOC.Product" id="product">
+		<property name="id" value="1"></property>
+		<property name="name" value="Laptop"></property>
+		<property name="price" value="12.23"></property>
+		<property name="laptop">
+			<!-- <bean class="com.cogent.SpringIOC.Laptop" id="laptop"> <property 
+				name="id" value="1"></property> <property name="brand" value="Dell"></property> 
+				</bean> -->
+
+			<ref bean="laptop" />
+		</property>
+		<property name="rams">
+			<array>
+				<value>12GB</value>
+				<value>8GB</value>
+				<value>16GB</value>
+				<value>32GB</value>
+			</array>
+		</property>
+
+
+
+	</bean>
+
+
+</beans>
